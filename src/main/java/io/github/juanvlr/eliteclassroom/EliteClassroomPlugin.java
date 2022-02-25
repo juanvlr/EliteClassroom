@@ -2,6 +2,7 @@ package io.github.juanvlr.eliteclassroom;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
+@SuppressWarnings("unused")
 public class EliteClassroomPlugin extends JavaPlugin {
 
     @Override

@@ -27,6 +27,9 @@ repositories {
 dependencies {
     // Paper API
     compileOnly(group = "org.github.paperspigot", name = "paperspigot-api", version = "1.8.8-R0.1-SNAPSHOT")
+
+    // Guice
+    implementation(group = "com.google.inject", name = "guice", version = "5.1.0")
 }
 
 spigot {
@@ -39,5 +42,7 @@ tasks {
     named<ShadowJar>("shadowJar") {
         archiveFileName.set("${project.properties["pluginName"]}.jar")
         destinationDirectory.set(file(localProperties.getProperty("pluginDestinationDirectory")))
+
+        relocate("com.google", "libraries.com.google")
     }
 }
