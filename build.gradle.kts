@@ -19,6 +19,11 @@ repositories {
     mavenCentral()
 
     maven {
+        name = "Paper repository"
+        url = uri("https://papermc.io/repo/repository/maven-public/")
+    }
+
+    maven {
         name = "Aikar repository"
         url = uri("https://repo.aikar.co/content/groups/aikar/")
     }
