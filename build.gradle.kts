@@ -28,14 +28,28 @@ dependencies {
     // Paper API
     compileOnly(group = "org.github.paperspigot", name = "paperspigot-api", version = "1.8.8-R0.1-SNAPSHOT")
 
+    // Commands
+    implementation(group = "co.aikar", name = "acf-paper", version = "0.5.1-SNAPSHOT")
+
     // Guice
     implementation(group = "com.google.inject", name = "guice", version = "5.1.0")
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }
 
 spigot {
     name = project.properties["pluginName"].toString()
 
     authors(project.properties["author"].toString())
+}
+
+tasks {
+    named<JavaCompile>("compileJava") {
+        options.compilerArgs.add("-parameters")
+    }
 }
 
 tasks {

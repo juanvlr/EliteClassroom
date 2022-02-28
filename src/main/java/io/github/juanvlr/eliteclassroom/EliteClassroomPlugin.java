@@ -6,7 +6,6 @@ import com.google.inject.Stage;
 import io.github.juanvlr.eliteclassroom.api.APIModule;
 import io.github.juanvlr.eliteclassroom.api.plugin.PluginModule;
 import io.github.juanvlr.eliteclassroom.api.plugin.boostrap.PluginBootstrap;
-import io.github.juanvlr.eliteclassroom.listener.ListenerModule;
 import org.bukkit.plugin.java.JavaPlugin;
 
 @SuppressWarnings("unused")
@@ -19,7 +18,7 @@ public class EliteClassroomPlugin extends JavaPlugin {
         Injector injector = Guice.createInjector(PLUGIN_STAGE,
                 new PluginModule(this),
                 new APIModule(),
-                new ListenerModule()
+                new CoreModule()
         );
 
         injector.getInstance(PluginBootstrap.class).boostrap();
