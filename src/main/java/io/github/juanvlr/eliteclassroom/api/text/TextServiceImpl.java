@@ -1,10 +1,10 @@
 package io.github.juanvlr.eliteclassroom.api.text;
 
-import io.github.juanvlr.eliteclassroom.api.text.bundle.BundlesProvider;
 import io.github.juanvlr.eliteclassroom.api.i18n.InternalizationService;
+import io.github.juanvlr.eliteclassroom.api.text.bundle.BundlesProvider;
 import io.github.juanvlr.eliteclassroom.api.text.bundle.UnavailableBundles;
-import io.github.juanvlr.eliteclassroom.api.text.component.serializer.ComponentSerializer;
 import io.github.juanvlr.eliteclassroom.api.text.component.TranslatableComponent;
+import io.github.juanvlr.eliteclassroom.api.text.component.serializer.ComponentSerializer;
 import io.github.juanvlr.eliteclassroom.api.text.title.TranslatableTitle;
 import net.kyori.adventure.audience.Audience;
 import net.kyori.adventure.text.Component;
