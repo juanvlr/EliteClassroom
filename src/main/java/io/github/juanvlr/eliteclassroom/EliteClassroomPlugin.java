@@ -15,13 +15,24 @@ public class EliteClassroomPlugin extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        Injector injector = Guice.createInjector(PLUGIN_STAGE,
-                new PluginModule(this),
-                new APIModule(),
-                new CoreModule()
-        );
+        try {
+            Injector injector = Guice.createInjector(PLUGIN_STAGE,
+                    new PluginModule(this),
+                    new APIModule(),
+                    new CoreModule()
+            );
 
-        injector.getInstance(PluginBootstrap.class).boostrap();
+            injector.getInstance(PluginBootstrap.class).boostrap();
+        } catch (Exception e) {
+            getLogger().severe(
+                    "An error occurred while enabling the plugin.\n" +
+                            "Please refer to the following exception for further details."
+            );
+
+            e.printStackTrace();
+
+            return;
+        }
 
         getLogger().info("Plugin enabled successfully");
     }

@@ -33,11 +33,20 @@ dependencies {
     // Paper API
     compileOnly(group = "org.github.paperspigot", name = "paperspigot-api", version = "1.8.8-R0.1-SNAPSHOT")
 
-    // Commands
+    // Command API
     implementation(group = "co.aikar", name = "acf-paper", version = "0.5.1-SNAPSHOT")
 
     // Guice
     implementation(group = "com.google.inject", name = "guice", version = "5.1.0")
+    implementation(group = "com.google.inject.extensions", name = "guice-throwingproviders", version = "5.1.0")
+
+    // YAML Resource Bundle
+    implementation(group = "dev.akkinoc.util", name = "yaml-resource-bundle", version = "2.3.0")
+
+    // Adventure API
+    implementation(group = "net.kyori", name = "adventure-platform-bukkit", version = "4.0.1")
+    implementation(group = "net.kyori", name = "adventure-text-minimessage", version = "4.10.0")
+    implementation(group = "net.kyori", name = "adventure-text-serializer-gson", version = "4.10.0")
 }
 
 java {
@@ -62,6 +71,6 @@ tasks {
         archiveFileName.set("${project.properties["pluginName"]}.jar")
         destinationDirectory.set(file(localProperties.getProperty("pluginDestinationDirectory")))
 
-        relocate("com.google", "libraries.com.google")
+        relocate("com.google", "libs.com.google")
     }
 }
