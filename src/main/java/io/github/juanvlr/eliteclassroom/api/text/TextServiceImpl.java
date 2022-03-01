@@ -7,9 +7,11 @@ import io.github.juanvlr.eliteclassroom.api.text.component.TranslatableComponent
 import io.github.juanvlr.eliteclassroom.api.text.component.serializer.ComponentSerializer;
 import io.github.juanvlr.eliteclassroom.api.text.title.TranslatableTitle;
 import net.kyori.adventure.audience.Audience;
+import net.kyori.adventure.platform.bukkit.BukkitAudiences;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver;
 import net.kyori.adventure.title.Title;
+import org.bukkit.entity.Player;
 
 import javax.inject.Inject;
 import java.io.IOException;
@@ -19,6 +21,7 @@ import java.util.ResourceBundle;
 
 public class TextServiceImpl implements TextService {
 
+    private final BukkitAudiences audiences;
     private final InternalizationService internalizationService;
     private final ComponentSerializer componentSerializer;
     private final Map<Locale, ResourceBundle> bundles;
@@ -27,10 +30,12 @@ public class TextServiceImpl implements TextService {
     public TextServiceImpl(
             InternalizationService internalizationService,
             ComponentSerializer componentSerializer,
-            BundlesProvider bundlesProvider
+            BundlesProvider bundlesProvider,
+            BukkitAudiences audiences
     ) {
         this.internalizationService = internalizationService;
         this.componentSerializer = componentSerializer;
+        this.audiences = audiences;
 
         Map<Locale, ResourceBundle> bundles;
 
@@ -51,6 +56,12 @@ public class TextServiceImpl implements TextService {
     }
 
     @Override
+    public void sendMessage(Player player, TranslatableComponent message) {
+        Audience audience = this.audiences.player(player);
+        this.sendMessage(audience, message);
+    }
+
+    @Override
     public void sendTitle(Audience audience, TranslatableTitle title) {
         audience.forEachAudience(childAudience -> {
             Title kyoriTitle = Title.title(
@@ -61,6 +72,12 @@ public class TextServiceImpl implements TextService {
 
             childAudience.showTitle(kyoriTitle);
         });
+    }
+
+    @Override
+    public void sendTitle(Player player, TranslatableTitle title) {
+        Audience audience = this.audiences.player(player);
+        this.sendTitle(audience, title);
     }
 
     private Component toKyoriComponent(Audience audience, TranslatableComponent component) {
