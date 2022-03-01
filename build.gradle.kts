@@ -40,9 +40,6 @@ dependencies {
     implementation(group = "com.google.inject", name = "guice", version = "5.1.0")
     implementation(group = "com.google.inject.extensions", name = "guice-throwingproviders", version = "5.1.0")
 
-    // YAML Resource Bundle
-    implementation(group = "dev.akkinoc.util", name = "yaml-resource-bundle", version = "2.3.0")
-
     // Adventure API
     implementation(group = "net.kyori", name = "adventure-platform-bukkit", version = "4.0.1")
     implementation(group = "net.kyori", name = "adventure-text-minimessage", version = "4.10.0")
