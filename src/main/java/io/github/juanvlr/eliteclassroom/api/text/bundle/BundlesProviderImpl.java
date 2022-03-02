@@ -1,7 +1,7 @@
 package io.github.juanvlr.eliteclassroom.api.text.bundle;
 
 import io.github.juanvlr.eliteclassroom.api.i18n.SupportedLocales;
-import io.github.juanvlr.eliteclassroom.api.plugin.InjectLogger;
+import io.github.juanvlr.eliteclassroom.api.plugin.logger.InjectPluginLogger;
 import io.github.juanvlr.eliteclassroom.api.plugin.PluginDataFolder;
 import net.kyori.adventure.util.UTF8ResourceBundleControl;
 
@@ -20,7 +20,7 @@ public class BundlesProviderImpl implements BundlesProvider {
 
     private static final String BUNDLE_NAME = "EliteClassroom";
 
-    @InjectLogger
+    @InjectPluginLogger
     private Logger logger;
 
     private final File dataFolder;
