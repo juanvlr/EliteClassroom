@@ -20,6 +20,7 @@ public class BundlesProviderImpl implements BundlesProvider {
 
     private static final String BUNDLE_NAME = "EliteClassroom";
 
+    @SuppressWarnings("unused")
     @InjectPluginLogger
     private Logger logger;
 

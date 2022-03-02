@@ -13,8 +13,8 @@ public class ComponentSerializerImpl implements ComponentSerializer {
 
     @Inject
     public ComponentSerializerImpl(
-            MiniMessage miniMessage,
-            net.kyori.adventure.text.serializer.ComponentSerializer<Component, Component, String> componentSerializer
+            net.kyori.adventure.text.serializer.ComponentSerializer<Component, Component, String> componentSerializer,
+            MiniMessage miniMessage
     ) {
         this.componentSerializer = componentSerializer;
         this.miniMessage = miniMessage;
