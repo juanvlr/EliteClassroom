@@ -5,7 +5,7 @@ import io.github.juanvlr.eliteclassroom.api.text.bundle.BundlesProvider;
 import io.github.juanvlr.eliteclassroom.api.text.bundle.UnavailableBundles;
 import io.github.juanvlr.eliteclassroom.api.text.component.TranslatableComponent;
 import io.github.juanvlr.eliteclassroom.api.text.component.serializer.ComponentSerializer;
-import io.github.juanvlr.eliteclassroom.api.text.component.TranslatableTitle;
+import io.github.juanvlr.eliteclassroom.api.text.component.TranslatableTitleComponent;
 import net.kyori.adventure.audience.Audience;
 import net.kyori.adventure.platform.bukkit.BukkitAudiences;
 import net.kyori.adventure.text.Component;
@@ -62,7 +62,7 @@ public class TextServiceImpl implements TextService {
     }
 
     @Override
-    public void sendTitle(Audience audience, TranslatableTitle title) {
+    public void sendTitle(Audience audience, TranslatableTitleComponent title) {
         audience.forEachAudience(childAudience -> {
             Title kyoriTitle = Title.title(
                     this.toKyoriComponent(childAudience, title.getTitle()),
@@ -75,7 +75,7 @@ public class TextServiceImpl implements TextService {
     }
 
     @Override
-    public void sendTitle(Player player, TranslatableTitle title) {
+    public void sendTitle(Player player, TranslatableTitleComponent title) {
         Audience audience = this.audiences.player(player);
         this.sendTitle(audience, title);
     }
