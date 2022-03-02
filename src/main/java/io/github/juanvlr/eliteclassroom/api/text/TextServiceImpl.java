@@ -80,7 +80,8 @@ public class TextServiceImpl implements TextService {
         this.sendTitle(audience, title);
     }
 
-    private Component toKyoriComponent(Audience audience, TranslatableComponent component) {
+    @Override
+    public Component toKyoriComponent(Audience audience, TranslatableComponent component) {
         Locale locale = this.internalizationService.getLocale(audience);
         ResourceBundle bundle = this.bundles.get(locale);
 
