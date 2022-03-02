@@ -17,4 +17,10 @@ public class InternalizationModule extends AbstractModule {
     public Locale[] provideSupportedLocales() {
         return new Locale[]{Locale.FRENCH};
     }
+
+    @Provides
+    @DefaultLocale
+    public Locale provideDefaultLocale() {
+        return Locale.FRENCH;
+    }
 }
