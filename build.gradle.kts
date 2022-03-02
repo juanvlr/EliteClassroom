@@ -36,14 +36,17 @@ dependencies {
     // Command API
     implementation(group = "co.aikar", name = "acf-paper", version = "0.5.1-SNAPSHOT")
 
-    // Guice
-    implementation(group = "com.google.inject", name = "guice", version = "5.1.0")
-    implementation(group = "com.google.inject.extensions", name = "guice-throwingproviders", version = "5.1.0")
-
     // Adventure API
     implementation(group = "net.kyori", name = "adventure-platform-bukkit", version = "4.0.1")
     implementation(group = "net.kyori", name = "adventure-text-minimessage", version = "4.10.0")
     implementation(group = "net.kyori", name = "adventure-text-serializer-gson", version = "4.10.0")
+
+    // Scoreboard API
+    implementation(group = "fr.mrmicky", name = "fastboard", version = "1.2.1")
+
+    // Guice
+    implementation(group = "com.google.inject", name = "guice", version = "5.1.0")
+    implementation(group = "com.google.inject.extensions", name = "guice-throwingproviders", version = "5.1.0")
 }
 
 java {
