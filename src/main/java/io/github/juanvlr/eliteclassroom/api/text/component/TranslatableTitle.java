@@ -1,6 +1,5 @@
-package io.github.juanvlr.eliteclassroom.api.text.title;
+package io.github.juanvlr.eliteclassroom.api.text.component;
 
-import io.github.juanvlr.eliteclassroom.api.text.component.TranslatableComponent;
 import net.kyori.adventure.title.Title;
 
 public class TranslatableTitle {

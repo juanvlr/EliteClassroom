@@ -1,7 +1,7 @@
 package io.github.juanvlr.eliteclassroom.api.text;
 
 import io.github.juanvlr.eliteclassroom.api.text.component.TranslatableComponent;
-import io.github.juanvlr.eliteclassroom.api.text.title.TranslatableTitle;
+import io.github.juanvlr.eliteclassroom.api.text.component.TranslatableTitle;
 import net.kyori.adventure.audience.Audience;
 import net.kyori.adventure.text.Component;
 import org.bukkit.entity.Player;
