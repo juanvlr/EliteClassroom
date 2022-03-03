@@ -1,7 +1,7 @@
-package io.github.juanvlr.eliteclassroom.api.text.bundle;
+package io.github.juanvlr.eliteclassroom.api.i18n.bundle;
 
 import io.github.juanvlr.eliteclassroom.api.i18n.SupportedLocales;
-import io.github.juanvlr.eliteclassroom.api.plugin.logger.InjectPluginLogger;
+import io.github.juanvlr.eliteclassroom.api.logger.InjectPluginLogger;
 import io.github.juanvlr.eliteclassroom.api.plugin.PluginDataFolder;
 import net.kyori.adventure.util.UTF8ResourceBundleControl;
 
@@ -20,7 +20,6 @@ public class BundlesProviderImpl implements BundlesProvider {
 
     private static final String BUNDLE_NAME = "EliteClassroom";
 
-    @SuppressWarnings("unused")
     @InjectPluginLogger
     private Logger logger;
 
@@ -37,19 +36,19 @@ public class BundlesProviderImpl implements BundlesProvider {
     }
 
     @Override
-    public Map<Locale, ResourceBundle> get() throws IOException {
+    public Collection<ResourceBundle> get() throws IOException {
         Path messageDirectory = dataFolder.toPath().resolve(MESSAGES_DIRECTORY);
 
         URL[] urls = {messageDirectory.toFile().toURI().toURL()};
 
         ClassLoader classLoader = new URLClassLoader(urls);
 
-        Map<Locale, ResourceBundle> bundles = new HashMap<>();
+        Collection<ResourceBundle> bundles = new ArrayList<>();
 
         for (Locale locale : supportedLocales) {
             try {
                 ResourceBundle bundle = ResourceBundle.getBundle(BUNDLE_NAME, locale, classLoader, UTF8ResourceBundleControl.get());
-                bundles.put(locale, bundle);
+                bundles.add(bundle);
             } catch (MissingResourceException e) {
                 // Missing resource for the current locale but that's not a problem, we warn the user though
                 this.logger.warning(String.format("No resource has been found for supported locale '%s'", locale));

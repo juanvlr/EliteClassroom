@@ -1,4 +1,4 @@
-package io.github.juanvlr.eliteclassroom.api.plugin.logger;
+package io.github.juanvlr.eliteclassroom.api.logger;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

@@ -4,6 +4,7 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Stage;
 import io.github.juanvlr.eliteclassroom.api.APIModule;
+import io.github.juanvlr.eliteclassroom.api.logger.LoggerModule;
 import io.github.juanvlr.eliteclassroom.api.plugin.PluginModule;
 import io.github.juanvlr.eliteclassroom.api.plugin.boostrap.PluginBootstrap;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -17,6 +18,7 @@ public class EliteClassroomPlugin extends JavaPlugin {
     public void onEnable() {
         try {
             Injector injector = Guice.createInjector(PLUGIN_STAGE,
+                    new LoggerModule(this.getLogger()),
                     new PluginModule(this),
                     new APIModule(),
                     new CoreModule()
@@ -24,7 +26,7 @@ public class EliteClassroomPlugin extends JavaPlugin {
 
             injector.getInstance(PluginBootstrap.class).boostrap();
         } catch (Exception e) {
-            getLogger().severe(
+            this.getLogger().severe(
                     "An error occurred while enabling the plugin.\n" +
                             "Please refer to the following exception for further details."
             );
@@ -34,11 +36,11 @@ public class EliteClassroomPlugin extends JavaPlugin {
             return;
         }
 
-        getLogger().info("Plugin enabled successfully");
+        this.getLogger().info("Plugin enabled successfully");
     }
 
     @Override
     public void onDisable() {
-        getLogger().info("Plugin disabled successfully");
+        this.getLogger().info("Plugin disabled successfully");
     }
 }

@@ -1,4 +1,4 @@
-package io.github.juanvlr.eliteclassroom.api.plugin.logger;
+package io.github.juanvlr.eliteclassroom.api.logger;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.MembersInjector;

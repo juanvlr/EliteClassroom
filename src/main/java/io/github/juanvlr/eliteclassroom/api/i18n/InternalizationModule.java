@@ -2,6 +2,7 @@ package io.github.juanvlr.eliteclassroom.api.i18n;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
+import io.github.juanvlr.eliteclassroom.api.i18n.bundle.BundleModule;
 
 import java.util.Locale;
 
@@ -9,7 +10,7 @@ public class InternalizationModule extends AbstractModule {
 
     @Override
     protected void configure() {
-        bind(InternalizationService.class).to(InternalizationServiceImpl.class);
+        install(new BundleModule());
     }
 
     @Provides
