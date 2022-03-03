@@ -34,7 +34,13 @@ public class TranslatableMiniMessageComponentFormatter {
 
                 if (currentFormat == null) {
                     // Simple format, juste replace it
-                    builder.append(String.format(TranslatableMiniMessageComponentRenderer.PLACEHOLDER_FORMAT, attributeIndex));
+                    builder.append(
+                            String.format("<%s>",
+                                    String.format(TranslatableMiniMessageComponentRenderer.PLACEHOLDER_TAG_NAME_FORMAT,
+                                            attributeIndex
+                                    )
+                            )
+                    );
                 } else {
                     // Complex format
                     // TODO And in case of error ? (arg not instanceof ComponentFormatter)

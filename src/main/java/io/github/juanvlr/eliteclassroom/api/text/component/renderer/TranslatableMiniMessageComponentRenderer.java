@@ -18,7 +18,7 @@ import java.util.Locale;
 
 public class TranslatableMiniMessageComponentRenderer extends TranslatableComponentRenderer<Locale> {
 
-    public static final String PLACEHOLDER_FORMAT = "<placeholder-%d>";
+    public static final String PLACEHOLDER_TAG_NAME_FORMAT = "placeholder-%d";
 
     private final Translator source;
     private final ComponentSerializer serializer;
@@ -75,7 +75,7 @@ public class TranslatableMiniMessageComponentRenderer extends TranslatableCompon
         TagResolver[] resolvers = new TagResolver[args.size()];
 
         for (int i = 0; i < args.size(); i++) {
-            resolvers[i] = Placeholder.component(String.format(PLACEHOLDER_FORMAT, i), args.get(i));
+            resolvers[i] = Placeholder.component(String.format(PLACEHOLDER_TAG_NAME_FORMAT, i), args.get(i));
         }
 
         return this.serializer.deserialize(builder.toString(), resolvers);
